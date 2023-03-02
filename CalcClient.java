@@ -34,19 +34,22 @@ public class CalcClient {
 
 //			System.out.println(calcImpl);
 
-
             while (true) {
                 out.println("1. Sum");
                 out.println("2. Sub");
                 out.println("3. Mul");
                 out.println("4. Div");
-                out.println("5. exit");
+                out.println("5. Sum Fracciones"); //nuevas opciones de usuario
+                out.println("6. Sub Fracciones");
+                out.println("7. Mul Fracciones");
+                out.println("8. Div Fracciones");
+                out.println("9. exit");
                 out.println("--");
                 out.println("choice: ");
 
                 try {
                     String opt = br.readLine();
-                    if (opt.equals("5")) {
+                    if (opt.equals("9")) {
                         break;
                     } else if (opt.equals("1")) {
                         out.println("a+b= " + calcImpl.sum(getFloat("a"), getFloat("b")));
@@ -57,6 +60,88 @@ public class CalcClient {
                     } else if (opt.equals("4")) {
                         try {
                             out.println("a/b= " + calcImpl.div(getFloat("a"), getFloat("b")));
+                        } catch (DivisionByZero de) {
+                            out.println("Division by zero!!!");
+                        }
+                    } else if (opt.equals("5")) {
+                        out.println("Enter fraction 1 numerator: ");
+                        long num1 = Long.parseLong(br.readLine());
+
+                        out.println("Enter fraction 1 denominator: ");
+                        long den1 = Long.parseLong(br.readLine());
+
+                        out.println("Enter fraction 2 numerator: ");
+                        long num2 = Long.parseLong(br.readLine());
+
+                        out.println("Enter fraction 2 denominator: ");
+                        long den2 = Long.parseLong(br.readLine());
+
+                        Frac f1 = new Frac((int) num1, (int) den1);
+                        Frac f2 = new Frac((int) num2, (int) den2);
+
+                        Frac result = calcImpl.addFrac(f1, f2);
+
+                        out.println("Result: " + result.num + "/" + result.den);
+
+                    } else if (opt.equals("6")) {
+                        out.println("Enter fraction 1 numerator: ");
+                        long num1 = Long.parseLong(br.readLine());
+
+                        out.println("Enter fraction 1 denominator: ");
+                        long den1 = Long.parseLong(br.readLine());
+
+                        out.println("Enter fraction 2 numerator: ");
+                        long num2 = Long.parseLong(br.readLine());
+
+                        out.println("Enter fraction 2 denominator: ");
+                        long den2 = Long.parseLong(br.readLine());
+
+                        Frac f1 = new Frac((int) num1, (int) den1);
+                        Frac f2 = new Frac((int) num2, (int) den2);
+
+                        Frac result = calcImpl.subFrac(f1, f2);
+
+                        out.println("Result: " + result.num + "/" + result.den);
+
+                    } else if (opt.equals("7")) {
+                        out.println("Enter fraction 1 numerator: ");
+                        long num1 = Long.parseLong(br.readLine());
+
+                        out.println("Enter fraction 1 denominator: ");
+                        long den1 = Long.parseLong(br.readLine());
+
+                        out.println("Enter fraction 2 numerator: ");
+                        long num2 = Long.parseLong(br.readLine());
+
+                        out.println("Enter fraction 2 denominator: ");
+                        long den2 = Long.parseLong(br.readLine());
+
+                        Frac f1 = new Frac((int) num1, (int) den1);
+                        Frac f2 = new Frac((int) num2, (int) den2);
+
+                        Frac result = calcImpl.mulFrac(f1, f2);
+
+                        out.println("Result: " + result.num + "/" + result.den);
+                    } else if (opt.equals("8")) {
+                        try {
+                            out.println("Enter fraction 1 numerator: ");
+                            long num1 = Long.parseLong(br.readLine());
+
+                            out.println("Enter fraction 1 denominator: ");
+                            long den1 = Long.parseLong(br.readLine());
+
+                            out.println("Enter fraction 2 numerator: ");
+                            long num2 = Long.parseLong(br.readLine());
+
+                            out.println("Enter fraction 2 denominator: ");
+                            long den2 = Long.parseLong(br.readLine());
+
+                            Frac f1 = new Frac((int) num1, (int) den1);
+                            Frac f2 = new Frac((int) num2, (int) den2);
+
+                            Frac result = calcImpl.divFrac(f1, f2);
+
+                            out.println("Result: " + result.num + "/" + result.den);
                         } catch (DivisionByZero de) {
                             out.println("Division by zero!!!");
                         }

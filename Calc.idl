@@ -1,5 +1,10 @@
 module CalcApp
 {
+    struct Frac {
+        long num;
+        long den;
+    };
+
 	interface Calc
 	{
 		exception DivisionByZero {};
@@ -8,5 +13,10 @@ module CalcApp
 		float div(in float a, in float b) raises (DivisionByZero);
 		float mul(in float a, in float b);
 		float sub(in float a, in float b);
+
+        Frac addFrac (in Frac f1, in Frac f2);
+        Frac subFrac (in Frac f1, in Frac f2);
+        Frac mulFrac (in Frac f1, in Frac f2);
+        Frac divFrac (in Frac f1, in Frac f2) raises (DivisionByZero);
 	};
 };

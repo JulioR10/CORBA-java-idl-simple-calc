@@ -34,6 +34,51 @@ class CalcImpl extends CalcPOA {
     public float sub(float a, float b) {
         return a - b;
     }
+
+    //nuevas funciones de operaciones aritmeticas.
+    @Override
+    public Frac addFrac(Frac f1, Frac f2) {
+        Frac result = new Frac();
+        result.num = f1.num * f2.den + f2.num * f1.den;
+        result.den = f1.den * f2.den;
+        return simplifyFrac(result);
+    }
+    @Override
+    public Frac subFrac(Frac f1, Frac f2) {
+        Frac result = new Frac();
+        result.num = f1.num * f2.den - f2.num * f1.den;
+        result.den = f1.den * f2.den;
+        return simplifyFrac(result);
+    }
+    @Override
+    public Frac mulFrac(Frac f1, Frac f2) {
+        Frac result = new Frac();
+        result.num = f1.num * f2.num;
+        result.den = f1.den * f2.den;
+        return simplifyFrac(result);
+    }
+    @Override
+    public Frac divFrac(Frac f1, Frac f2) throws DivisionByZero {
+        Frac result = new Frac();
+        result.num = f1.num * f2.den;
+        result.den = f1.den * f2.num;
+        if (result.den == 0) {
+            throw new DivisionByZero();
+        }
+        return simplifyFrac(result);
+    }
+
+    public Frac simplifyFrac(Frac f) {
+        int gcd = getGCD(f.num, f.den);
+        f.num /= gcd;
+        f.den /= gcd;
+        return f;
+    }
+
+    public int getGCD(int a, int b) {
+        return b == 0 ? a : getGCD(b, a % b);
+    }
+
     private ORB orb;
 
     public void setORB(ORB orb_val) {
