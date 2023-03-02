@@ -29,7 +29,7 @@ Inicie el cliente utilizando el siguiente comando:
 java CalcClient -ORBInitialPort <puerto> -ORBInitialHost <dirección IP>
 ```
 Asegúrese de reemplazar <puerto> y <dirección IP> con los valores apropiados.
-3. Seleccione una de las operaciones disponibles en la aplicación: suma, resta, multiplicación, división, suma de fracciones, resta de fracciones, multiplicación de fracciones, división de fracciones.
+Seleccione una de las operaciones disponibles en la aplicación: suma, resta, multiplicación, división, suma de fracciones, resta de fracciones, multiplicación de fracciones, división de fracciones.
 
 Proporcione los operandos necesarios para la operación seleccionada.
 La aplicación mostrará el resultado de la operación en la salida estándar.
