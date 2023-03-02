@@ -33,4 +33,3 @@ Asegúrese de reemplazar <puerto> y <dirección IP> con los valores apropiados.
 
 Proporcione los operandos necesarios para la operación seleccionada.
 La aplicación mostrará el resultado de la operación en la salida estándar.
-¡Gracias por utilizar CalcApp! Si tiene alguna pregunta o problema, no dude en abrir un problema en el repositorio de GitHub.
